@@ -1,0 +1,15 @@
+[Unit]
+Description=uWSGI Emperor Service
+After = network.target
+
+
+[Service]
+ExecStartPre = /bin/bash -c 'source /home/usuario/libraryenv/bin/activate'
+ExecStart = uwsgi --emperor /home/usuario/librarysite/uwsgi
+Restart = always
+KillSignal = SIGQUIT
+Type = notify
+NotifyAccess = all
+
+[Install]
+WantedBy = multi-user.target
