@@ -5,9 +5,9 @@ After = network.target
 [Service]
 User = usuario
 Group = nginx
-ExecStartPre = /home/usuario/librarysite/services/startpre.sh
-ExecStart    = /home/usuario/librarysite/services/start.sh
-ExecStop     = /home/usuario/librarysite/services/stop.sh
+ExecStartPre = /home/usuario/librarysite/uwsgi/startpre.sh
+ExecStart    = /home/usuario/librarysite/uwsgi/start.sh
+ExecStop     = /home/usuario/librarysite/uwsgi/stop.sh
 Restart = always
 KillSignal = SIGQUIT
 Type = notify

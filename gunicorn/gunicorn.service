@@ -1,0 +1,18 @@
+[Unit]
+Description=Gunicorn Service
+After = network.target
+
+[Service]
+User = usuario
+Group = nginx
+ExecStartPre = /home/usuario/librarysite/gunicorn/startpre.sh
+ExecStart    = /home/usuario/librarysite/gunicorn/start.sh
+ExecStartPost= /home/usuario/librarysite/gunicorn/startpost.sh
+ExecStop     = /home/usuario/librarysite/gunicorn/stop.sh
+Restart = always
+KillSignal = SIGQUIT
+Type = notify
+NotifyAccess = all
+
+[Install]
+WantedBy = multi-user.target
